@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Noise &mdash; Bravo v1.0 documentation</title>
+    <title>Auxiliary &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
-    <link rel="prev" title="Tools" href="tools.html" /> 
+    <link rel="next" title="compat – Backwards compatibility" href="compat.html" />
+    <link rel="prev" title="world – Worlds" href="world.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,7 +37,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="tools.html" title="Tools"
+          <a href="compat.html" title="compat – Backwards compatibility"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="world.html" title="world – Worlds"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -47,74 +51,20 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="noise">
-<h1>Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h1>
-<p>Bravo, like all Minecraft terrain generators, relies heavily on randomness to
-generate its terrain. In order to understand some of the design decisions in
-the terrain generator, it is required to understand noise and its various
-properties.</p>
-<div class="section" id="probability">
-<h2>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h2>
-<p>Noise&#8217;s probability distribution is not even, equal, or normal. It <em>is</em>
-symmetric about 0, meaning that the absolute value of noise has all of the
-same relative probabilities as the entire range of noise.</p>
-<p>When binned into a histogram with 100 bins, a few bins become very large.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="27%" />
-<col width="73%" />
-</colgroup>
-<tbody valign="top">
-<tr><td>Bin</td>
-<td>Probability</td>
-</tr>
-<tr><td>0.00</td>
-<td>2.6150%</td>
-</tr>
-<tr><td>0.49</td>
-<td>2.2262%</td>
-</tr>
-<tr><td>0.59</td>
-<td>1.8274%</td>
-</tr>
-<tr><td>0.43</td>
-<td>1.8248%</td>
-</tr>
-<tr><td>0.42</td>
-<td>1.7888%</td>
-</tr>
-<tr><td>0.58</td>
-<td>1.5939%</td>
-</tr>
-<tr><td>0.48</td>
-<td>1.5194%</td>
-</tr>
-<tr><td>0.41</td>
-<td>1.5118%</td>
-</tr>
-<tr><td>0.18</td>
-<td>1.4715%</td>
-</tr>
-<tr><td>0.24</td>
-<td>1.4366%</td>
-</tr>
-<tr><td>0.54</td>
-<td>1.4072%</td>
-</tr>
-<tr><td>0.22</td>
-<td>1.3825%</td>
-</tr>
-<tr><td>0.50</td>
-<td>1.3786%</td>
-</tr>
-<tr><td>0.44</td>
-<td>1.3696%</td>
-</tr>
-<tr><td>0.26</td>
-<td>1.3680%</td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="auxiliary">
+<h1>Auxiliary<a class="headerlink" href="#auxiliary" title="Permalink to this headline">¶</a></h1>
+<p>Modules which do not contribute directly to the functionality of Bravo.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compat.html"><tt class="docutils literal"><span class="pre">compat</span></tt> &#8211; Backwards compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simplex.html"><tt class="docutils literal"><span class="pre">simplex</span></tt> &#8211; Simplex noise generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html"><tt class="docutils literal"><span class="pre">utilities</span></tt> &#8211; Helper functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#coordinate-handling">Coordinate Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#data-packing">Data Packing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#trigonometry">Trigonometry</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
@@ -124,20 +74,15 @@ same relative probabilities as the entire range of noise.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Noise</a><ul>
-<li><a class="reference internal" href="#probability">Probability</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
-  <p class="topless"><a href="tools.html"
-                        title="previous chapter">Tools</a></p>
+  <p class="topless"><a href="world.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">world</span></tt> &#8211; Worlds</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="compat.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">compat</span></tt> &#8211; Backwards compatibility</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/noise.txt"
+    <li><a href="_sources/auxiliary.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -167,7 +112,10 @@ same relative probabilities as the entire range of noise.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="tools.html" title="Tools"
+          <a href="compat.html" title="compat – Backwards compatibility"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="world.html" title="world – Worlds"
              >previous</a> |</li>
         <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li> 
       </ul>

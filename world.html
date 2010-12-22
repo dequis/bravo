@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>world – Worlds &mdash; Beta v1.0 documentation</title>
+    <title>world – Worlds &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,9 +22,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Beta v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
-    <link rel="next" title="Auxiliary" href="aux.html" />
+    <link rel="next" title="Auxiliary" href="auxiliary.html" />
     <link rel="prev" title="stdio – Console support" href="stdio.html" /> 
   </head>
   <body>
@@ -35,12 +35,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="aux.html" title="Auxiliary"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="auxiliary.html" title="Auxiliary"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="stdio.html" title="stdio – Console support"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -50,45 +53,32 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="world-worlds">
-<h1><tt class="docutils literal"><span class="pre">world</span></tt> &#8211; Worlds<a class="headerlink" href="#world-worlds" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-bravo.world">
+<span id="world-worlds"></span><h1><tt class="docutils literal"><span class="pre">world</span></tt> &#8211; Worlds<a class="headerlink" href="#module-bravo.world" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="beta.world.World">
-<em class="property">class </em><tt class="descclassname">beta.world.</tt><tt class="descname">World</tt><big>(</big><em>folder</em><big>)</big><a class="headerlink" href="#beta.world.World" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object representing a world on disk.</p>
+<dt id="bravo.world.World">
+<em class="property">class </em><tt class="descclassname">bravo.world.</tt><tt class="descname">World</tt><big>(</big><em>folder</em><big>)</big><a class="headerlink" href="#bravo.world.World" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">bravo.serializers.alpha.LevelSerializer</span></tt></p>
+<p>Object representing a world on disk.</p>
 <p>Worlds are composed of levels and chunks, each of which corresponds to
 exactly one file on disk. Worlds also contain saved player data.</p>
 <dl class="method">
-<dt id="beta.world.World.generate_level">
-<tt class="descname">generate_level</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.world.World.generate_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate the level metadata.</p>
-<p>This method currently does not generate all of Alpha&#8217;s metadata, just
-the data used by Beta.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="beta.world.World.load_chunk">
-<tt class="descname">load_chunk</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#beta.world.World.load_chunk" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.load_chunk">
+<tt class="descname">load_chunk</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.world.World.load_chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a <cite>Chunk</cite>.</p>
 <p>This method does lots of automatic caching of chunks to ensure that
 disk I/O is kept to a minimum.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.world.World.load_level_data">
-<tt class="descname">load_level_data</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.world.World.load_level_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load level data.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="beta.world.World.load_player">
-<tt class="descname">load_player</tt><big>(</big><em>username</em><big>)</big><a class="headerlink" href="#beta.world.World.load_player" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.load_player">
+<tt class="descname">load_player</tt><big>(</big><em>username</em><big>)</big><a class="headerlink" href="#bravo.world.World.load_player" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve player data.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.world.World.populate_chunk">
-<tt class="descname">populate_chunk</tt><big>(</big><em>chunk</em><big>)</big><a class="headerlink" href="#beta.world.World.populate_chunk" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.populate_chunk">
+<tt class="descname">populate_chunk</tt><big>(</big><em>chunk</em><big>)</big><a class="headerlink" href="#bravo.world.World.populate_chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recreate data for a chunk.</p>
 <p>This method does arbitrary terrain generation depending on the current
 plugins, and then regenerates the chunk metadata so that the chunk can
@@ -99,31 +89,44 @@ time.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.world.World.save_off">
-<tt class="descname">save_off</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.world.World.save_off" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.save_off">
+<tt class="descname">save_off</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.world.World.save_off" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disable saving to disk.</p>
-<p>This is useful for accessing the world on disk without Beta
+<p>This is useful for accessing the world on disk without Bravo
 interfering, for backing up the world.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.world.World.save_on">
-<tt class="descname">save_on</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.world.World.save_on" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.save_on">
+<tt class="descname">save_on</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.world.World.save_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enable saving to disk.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="beta.world.World.saving">
-<tt class="descname">saving</tt><a class="headerlink" href="#beta.world.World.saving" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.saving">
+<tt class="descname">saving</tt><a class="headerlink" href="#bravo.world.World.saving" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether objects belonging to this world may be written out to disk.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="beta.world.World.season">
-<tt class="descname">season</tt><a class="headerlink" href="#beta.world.World.season" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.world.World.season">
+<tt class="descname">season</tt><a class="headerlink" href="#bravo.world.World.season" title="Permalink to this definition">¶</a></dt>
 <dd><p>The current <cite>ISeason</cite>.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="bravo.world.World.sort_chunks">
+<tt class="descname">sort_chunks</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.world.World.sort_chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort out the internal caches.</p>
+<p>This method will always block when there are dirty chunks.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="bravo.world.base36">
+<tt class="descclassname">bravo.world.</tt><tt class="descname">base36</tt><big>(</big><em>i</em><big>)</big><a class="headerlink" href="#bravo.world.base36" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the string representation of i in base 36, using lowercase letters.</p>
 </dd></dl>
 
 </div>
@@ -138,7 +141,7 @@ interfering, for backing up the world.</p>
   <p class="topless"><a href="stdio.html"
                         title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">stdio</span></tt> &#8211; Console support</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="aux.html"
+  <p class="topless"><a href="auxiliary.html"
                         title="next chapter">Auxiliary</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
@@ -169,12 +172,15 @@ interfering, for backing up the world.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="aux.html" title="Auxiliary"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="auxiliary.html" title="Auxiliary"
              >next</a> |</li>
         <li class="right" >
           <a href="stdio.html" title="stdio – Console support"
              >previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ibravo – Interfaces &mdash; Bravo v1.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="up" title="Core" href="core.html" />
+    <link rel="next" title="packets – Packet serializers" href="packets.html" />
+    <link rel="prev" title="factory – Twisted factory" href="factory.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="packets.html" title="packets – Packet serializers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="factory.html" title="factory – Twisted factory"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+          <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ibravo-interfaces">
+<h1><tt class="docutils literal"><span class="pre">ibravo</span></tt> &#8211; Interfaces<a class="headerlink" href="#ibravo-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">ibravo</span></tt> module holds the interfaces required to implement plugins and
+hooks.</p>
+<div class="section" id="plugins">
+<h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bravo.ibravo.IAuthenticator">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">IAuthenticator</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.IAuthenticator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">zope.interface.Interface</span></tt></p>
+<p>Interface for authenticators.</p>
+<p>Authenticators participate in a two-step login process with a handshake.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.ibravo.IChatCommand">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">IChatCommand</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.IChatCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">bravo.ibravo.ICommand</span></tt></p>
+<p>Interface for chat commands.</p>
+<p>Chat commands are invoked from the chat inside clients, so they are always
+called by a specific client.</p>
+<p>This interface is specifically designed to exist comfortably side-by-side
+with <cite>IConsoleCommand</cite>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.ibravo.IConsoleCommand">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">IConsoleCommand</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.IConsoleCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">bravo.ibravo.ICommand</span></tt></p>
+<p>Interface for console commands.</p>
+<p>Console commands are invoked from a console or some other location with
+two defining attributes: Access restricted to superusers, and no user
+issuing the command. As such, no access control list applies to them, but
+they must be given usernames to operate on explicitly.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.ibravo.ISeason">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">ISeason</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.ISeason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">zope.interface.Interface</span></tt></p>
+<p>Seasons are transformational stages run during certain days to emulate an
+environment.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.ibravo.ITerrainGenerator">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">ITerrainGenerator</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.ITerrainGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">zope.interface.Interface</span></tt></p>
+<p>Interface for terrain generators.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="hooks">
+<h2>Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bravo.ibravo.IBuildHook">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">IBuildHook</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.IBuildHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">zope.interface.Interface</span></tt></p>
+<p>Hook for actions to be taken after a block is placed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.ibravo.IDigHook">
+<em class="property">class </em><tt class="descclassname">bravo.ibravo.</tt><tt class="descname">IDigHook</tt><big>(</big><em>name</em>, <em>bases=()</em>, <em>attrs=None</em>, <em>__doc__=None</em>, <em>__module__=None</em><big>)</big><a class="headerlink" href="#bravo.ibravo.IDigHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">zope.interface.Interface</span></tt></p>
+<p>Hook for actions to be taken after a block is dug up.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">ibravo</span></tt> &#8211; Interfaces</a><ul>
+<li><a class="reference internal" href="#plugins">Plugins</a></li>
+<li><a class="reference internal" href="#hooks">Hooks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="factory.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="packets.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">packets</span></tt> &#8211; Packet serializers</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ibravo.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="packets.html" title="packets – Packet serializers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="factory.html" title="factory – Twisted factory"
+             >previous</a> |</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+          <li><a href="core.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Corbin Simpson &amp; Derrick Dymock.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

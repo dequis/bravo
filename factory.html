@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>factory – Twisted factory &mdash; Beta v1.0 documentation</title>
+    <title>factory – Twisted factory &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,10 +22,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Beta v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
-    <link rel="next" title="ibeta – Interfaces" href="ibeta.html" />
-    <link rel="prev" title="chunk – Chunk data structures" href="chunk.html" /> 
+    <link rel="next" title="ibravo – Interfaces" href="ibravo.html" />
+    <link rel="prev" title="entity – Entities" href="entity.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +35,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ibeta.html" title="ibeta – Interfaces"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ibravo.html" title="ibravo – Interfaces"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="chunk.html" title="chunk – Chunk data structures"
+          <a href="entity.html" title="entity – Entities"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -50,54 +53,50 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="factory-twisted-factory">
-<h1><tt class="docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory<a class="headerlink" href="#factory-twisted-factory" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-bravo.factory">
+<span id="factory-twisted-factory"></span><h1><tt class="docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory<a class="headerlink" href="#module-bravo.factory" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="beta.factory.AlphaFactory">
-<em class="property">class </em><tt class="descclassname">beta.factory.</tt><tt class="descname">AlphaFactory</tt><a class="headerlink" href="#beta.factory.AlphaFactory" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="beta.factory.AlphaFactory.broadcast_for_chunk">
-<tt class="descname">broadcast_for_chunk</tt><big>(</big><em>packet</em>, <em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#beta.factory.AlphaFactory.broadcast_for_chunk" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factory.BetaFactory">
+<em class="property">class </em><tt class="descclassname">bravo.factory.</tt><tt class="descname">BetaFactory</tt><a class="headerlink" href="#bravo.factory.BetaFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.internet.protocol.Factory</span></tt></p>
+<p>A <tt class="docutils literal"><span class="pre">Factory</span></tt> that creates <tt class="docutils literal"><span class="pre">BetaProtocol</span></tt> objects when connected to.</p>
+<dl class="method">
+<dt id="bravo.factory.BetaFactory.broadcast_for_chunk">
+<tt class="descname">broadcast_for_chunk</tt><big>(</big><em>packet</em>, <em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.broadcast_for_chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Broadcast a packet to all players that have a certain chunk loaded.</p>
 <p><cite>x</cite> and <cite>z</cite> are chunk coordinates, not block coordinates.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.factory.AlphaFactory.entities_near">
-<tt class="descname">entities_near</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>radius</em><big>)</big><a class="headerlink" href="#beta.factory.AlphaFactory.entities_near" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factory.BetaFactory.entities_near">
+<tt class="descname">entities_near</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>radius</em><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.entities_near" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a coordinate and a radius, return all entities within that
 radius of those coordinates.</p>
 <p>All arguments should be in pixels, not blocks.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.factory.AlphaFactory.give">
-<tt class="descname">give</tt><big>(</big><em>coords</em>, <em>block</em>, <em>quantity</em><big>)</big><a class="headerlink" href="#beta.factory.AlphaFactory.give" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factory.BetaFactory.give">
+<tt class="descname">give</tt><big>(</big><em>coords</em>, <em>block</em>, <em>quantity</em><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.give" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spawn a pickup at the specified coordinates.</p>
 <p>The coordinates need to be in pixels, not blocks.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="beta.factory.AlphaFactory.protocol">
-<tt class="descname">protocol</tt><a class="headerlink" href="#beta.factory.AlphaFactory.protocol" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">AlphaProtocol</span></tt></p>
+<dt id="bravo.factory.BetaFactory.protocol">
+<tt class="descname">protocol</tt><a class="headerlink" href="#bravo.factory.BetaFactory.protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">BetaProtocol</span></tt></p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.factory.AlphaFactory.run_command">
-<tt class="descname">run_command</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#beta.factory.AlphaFactory.run_command" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a command string from the console or chat, execute it.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="beta.factory.AlphaFactory.update_season">
-<tt class="descname">update_season</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.factory.AlphaFactory.update_season" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factory.BetaFactory.update_season">
+<tt class="descname">update_season</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.update_season" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the world&#8217;s season.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.factory.AlphaFactory.update_time">
-<tt class="descname">update_time</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.factory.AlphaFactory.update_time" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factory.BetaFactory.update_time">
+<tt class="descname">update_time</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.update_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the in-game timer.</p>
 <p>The timer goes from 0 to 24000, both of which are high noon. The clock
 increments by 20 every second. Days are 20 minutes long.</p>
@@ -117,11 +116,11 @@ once every 5 days. This is a Babylonian in-game year.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="chunk.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">chunk</span></tt> &#8211; Chunk data structures</a></p>
+  <p class="topless"><a href="entity.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">entity</span></tt> &#8211; Entities</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ibeta.html"
-                        title="next chapter"><tt class="docutils literal"><span class="pre">ibeta</span></tt> &#8211; Interfaces</a></p>
+  <p class="topless"><a href="ibravo.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">ibravo</span></tt> &#8211; Interfaces</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/factory.txt"
@@ -151,12 +150,15 @@ once every 5 days. This is a Babylonian in-game year.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ibeta.html" title="ibeta – Interfaces"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ibravo.html" title="ibravo – Interfaces"
              >next</a> |</li>
         <li class="right" >
-          <a href="chunk.html" title="chunk – Chunk data structures"
+          <a href="entity.html" title="entity – Entities"
              >previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

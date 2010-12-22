@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>blocks – Block descriptions &mdash; Beta v1.0 documentation</title>
+    <title>blocks – Block descriptions &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Beta v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
     <link rel="next" title="chunk – Chunk data structures" href="chunk.html" />
     <link rel="prev" title="alpha – Alpha objects" href="alpha.html" /> 
@@ -35,12 +35,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="chunk.html" title="chunk – Chunk data structures"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="alpha.html" title="alpha – Alpha objects"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -53,10 +56,22 @@
   <div class="section" id="blocks-block-descriptions">
 <h1><tt class="docutils literal"><span class="pre">blocks</span></tt> &#8211; Block descriptions<a class="headerlink" href="#blocks-block-descriptions" title="Permalink to this headline">¶</a></h1>
 <p>The <tt class="docutils literal"><span class="pre">blocks</span></tt> module contains descriptions of blocks.</p>
-<dl class="class">
-<dt id="beta.blocks.Block">
-<em class="property">class </em><tt class="descclassname">beta.blocks.</tt><tt class="descname">Block</tt><big>(</big><em>slot</em>, <em>name</em>, <em>drop=None</em>, <em>replace=0</em><big>)</big><a class="headerlink" href="#beta.blocks.Block" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="target" id="module-bravo.blocks"></span><dl class="class">
+<dt id="bravo.blocks.Block">
+<em class="property">class </em><tt class="descclassname">bravo.blocks.</tt><tt class="descname">Block</tt><big>(</big><em>slot</em>, <em>name</em>, <em>drop=None</em>, <em>replace=0</em>, <em>ratio=None</em>, <em>quantity=1</em><big>)</big><a class="headerlink" href="#bravo.blocks.Block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A model for a block.</p>
+<p>There are lots of rule and properties specific to different types of
+blocks. This class encapsulates those properties in a singleton-style
+interface, allowing many blocks to be referenced in one location.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="bravo.blocks.blocks">
+<tt class="descclassname">bravo.blocks.</tt><tt class="descname">blocks</tt><a class="headerlink" href="#bravo.blocks.blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of <tt class="docutils literal"><span class="pre">Block</span></tt> objects.</p>
+<p>This dictionary can be indexed by slot number or block name.</p>
+</dd></dl>
 
 </div>
 
@@ -101,12 +116,15 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="chunk.html" title="chunk – Chunk data structures"
              >next</a> |</li>
         <li class="right" >
           <a href="alpha.html" title="alpha – Alpha objects"
              >previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

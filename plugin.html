@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>plugin – Plugin loaders &mdash; Beta v1.0 documentation</title>
+    <title>plugin – Plugin loaders &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,10 +22,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Beta v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
     <link rel="next" title="protocol – Twisted protocol" href="protocol.html" />
-    <link rel="prev" title="ibeta – Interfaces" href="ibeta.html" /> 
+    <link rel="prev" title="packets – Packet serializers" href="packets.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +35,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="protocol.html" title="protocol – Twisted protocol"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="ibeta.html" title="ibeta – Interfaces"
+          <a href="packets.html" title="packets – Packet serializers"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -54,15 +57,42 @@
 <h1><tt class="docutils literal"><span class="pre">plugin</span></tt> &#8211; Plugin loaders<a class="headerlink" href="#plugin-plugin-loaders" title="Permalink to this headline">¶</a></h1>
 <p>The <tt class="docutils literal"><span class="pre">plugin</span></tt> module provides several helper functions that wrap
 <tt class="docutils literal"><span class="pre">twisted.plugin</span></tt>. <tt class="docutils literal"><span class="pre">plugin</span></tt> makes loading plugins simpler.</p>
-<dl class="exception">
-<dt id="beta.plugin.PluginException">
-<em class="property">exception </em><tt class="descclassname">beta.plugin.</tt><tt class="descname">PluginException</tt><a class="headerlink" href="#beta.plugin.PluginException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Signal an error encountered during plugin handling.</p>
+<span class="target" id="module-bravo.plugin"></span><dl class="exception">
+<dt id="bravo.plugin.PluginException">
+<em class="property">exception </em><tt class="descclassname">bravo.plugin.</tt><tt class="descname">PluginException</tt><a class="headerlink" href="#bravo.plugin.PluginException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Signal an error encountered during plugin handling.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="beta.plugin.retrieve_plugins">
-<tt class="descclassname">beta.plugin.</tt><tt class="descname">retrieve_plugins</tt><big>(</big><em>interface</em>, <em>cached=True</em>, <em>cache={}</em><big>)</big><a class="headerlink" href="#beta.plugin.retrieve_plugins" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.plugin.retrieve_named_plugins">
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_named_plugins</tt><big>(</big><em>interface</em>, <em>names</em><big>)</big><a class="headerlink" href="#bravo.plugin.retrieve_named_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look up a list of plugins by name.</p>
+<p>Plugins are returned in the same order as their names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>interface</strong> (<em>interface</em>) &#8211; the interface to use</li>
+<li><strong>names</strong> (<em>list</em>) &#8211; plugins to find</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list of plugins</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">Raises PluginException:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body"><p class="first last">no plugins could be found for the given interface</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bravo.plugin.retrieve_plugins">
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_plugins</tt><big>(</big><em>interface</em>, <em>cached=True</em>, <em>cache={}</em><big>)</big><a class="headerlink" href="#bravo.plugin.retrieve_plugins" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look up all plugins for a certain interface.</p>
 <p>If the plugin cache is enabled, this function will not attempt to reload
 plugins from disk or discover new plugins.</p>
@@ -87,32 +117,6 @@ plugins from disk or discover new plugins.</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="beta.plugin.retrieve_named_plugins">
-<tt class="descclassname">beta.plugin.</tt><tt class="descname">retrieve_named_plugins</tt><big>(</big><em>interface</em>, <em>names</em><big>)</big><a class="headerlink" href="#beta.plugin.retrieve_named_plugins" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look up a list of plugins by name.</p>
-<p>Plugins are returned in the same order as their names.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>interface</strong> (<em>interface</em>) &#8211; the interface to use</li>
-<li><strong>names</strong> (<em>list</em>) &#8211; plugins to find</li>
-</ul>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list of plugins</p>
-</td>
-</tr>
-<tr class="field"><th class="field-name" colspan="2">Raises PluginException:</th></tr>
-<tr><td>&nbsp;</td><td class="field-body"><p class="first last">no plugins could be found for the given interface</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
 
 
@@ -122,8 +126,8 @@ plugins from disk or discover new plugins.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="ibeta.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">ibeta</span></tt> &#8211; Interfaces</a></p>
+  <p class="topless"><a href="packets.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">packets</span></tt> &#8211; Packet serializers</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="protocol.html"
                         title="next chapter"><tt class="docutils literal"><span class="pre">protocol</span></tt> &#8211; Twisted protocol</a></p>
@@ -156,12 +160,15 @@ plugins from disk or discover new plugins.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="protocol.html" title="protocol – Twisted protocol"
              >next</a> |</li>
         <li class="right" >
-          <a href="ibeta.html" title="ibeta – Interfaces"
+          <a href="packets.html" title="packets – Packet serializers"
              >previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

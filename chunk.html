@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>chunk – Chunk data structures &mdash; Beta v1.0 documentation</title>
+    <title>chunk – Chunk data structures &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,9 +22,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Beta v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
-    <link rel="next" title="factory – Twisted factory" href="factory.html" />
+    <link rel="next" title="entity – Entities" href="entity.html" />
     <link rel="prev" title="blocks – Block descriptions" href="blocks.html" /> 
   </head>
   <body>
@@ -35,12 +35,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="factory.html" title="factory – Twisted factory"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="entity.html" title="entity – Entities"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="blocks.html" title="blocks – Block descriptions"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -54,32 +57,77 @@
 <h1><tt class="docutils literal"><span class="pre">chunk</span></tt> &#8211; Chunk data structures<a class="headerlink" href="#chunk-chunk-data-structures" title="Permalink to this headline">¶</a></h1>
 <p>The <tt class="docutils literal"><span class="pre">chunk</span></tt> module holds the data structures required to track and update
 block data in chunks.</p>
-<div class="section" id="main-classes">
-<h2>Main Classes<a class="headerlink" href="#main-classes" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="beta.chunk.Chunk">
-<em class="property">class </em><tt class="descclassname">beta.chunk.</tt><tt class="descname">Chunk</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#beta.chunk.Chunk" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="beta.chunk.Chunk.clear_damage">
-<tt class="descname">clear_damage</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.clear_damage" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-bravo.chunk"></span><dl class="class">
+<dt id="bravo.chunk.Chunk">
+<em class="property">class </em><tt class="descclassname">bravo.chunk.</tt><tt class="descname">Chunk</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">bravo.serializers.alpha.ChunkSerializer</span></tt></p>
+<p>A chunk of blocks.</p>
+<p>Chunks are large pieces of world geometry. The blocks, light maps, and
+associated metadata are stored in chunks.</p>
+<dl class="attribute">
+<dt id="bravo.chunk.Chunk.all_damaged">
+<tt class="descname">all_damaged</tt><a class="headerlink" href="#bravo.chunk.Chunk.all_damaged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag for forcing the entire chunk to be damaged.</p>
+<p>This is for efficiency; past a certain point, it is not efficient to
+batch block updates or track damage. Heavily damaged chunks have their
+damage represented as a complete resend of the entire chunk.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.chunk.Chunk.clear_damage">
+<tt class="descname">clear_damage</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.clear_damage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear this chunk&#8217;s damage.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.flush">
-<tt class="descname">flush</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.flush" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the chunk&#8217;s data out to disk.</p>
+<dt id="bravo.chunk.Chunk.damage">
+<tt class="descname">damage</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.damage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record damage on this chunk.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bravo.chunk.Chunk.damaged">
+<tt class="descname">damaged</tt><a class="headerlink" href="#bravo.chunk.Chunk.damaged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array for tracking damaged coordinates.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bravo.chunk.Chunk.dirty">
+<tt class="descname">dirty</tt><a class="headerlink" href="#bravo.chunk.Chunk.dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this chunk needs to be flushed to disk.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.get_block">
-<tt class="descname">get_block</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.get_block" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.get_block">
+<tt class="descname">get_block</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.get_block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look up a block value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>coords</strong> (<em>tuple</em>) &#8211; coordinate triplet</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int representing block type</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.get_damage_packet">
-<tt class="descname">get_damage_packet</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.get_damage_packet" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.get_column">
+<tt class="descname">get_column</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.get_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a slice of the block data at the given xz-column.</p>
+<p>The slice is a numpy array, so you do not have to set it again if you
+are modifying it in-place.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.chunk.Chunk.get_damage_packet">
+<tt class="descname">get_damage_packet</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.get_damage_packet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a packet representing the current damage on this chunk.</p>
 <p>This method is not private, but some care should be taken with it,
 since it wraps some fairly cryptic internal data structures.</p>
@@ -106,14 +154,49 @@ for doing this.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.height_at">
-<tt class="descname">height_at</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.height_at" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the height of an xz-column of blocks.</p>
+<dt id="bravo.chunk.Chunk.get_metadata">
+<tt class="descname">get_metadata</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.get_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look up metadata.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>coords</strong> (<em>tuple</em>) &#8211; coordinate triplet</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.is_damaged">
-<tt class="descname">is_damaged</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.is_damaged" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.height_at">
+<tt class="descname">height_at</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.height_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the height of an xz-column of blocks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>int</em>) &#8211; X coordinate</li>
+<li><strong>z</strong> (<em>int</em>) &#8211; Z coordinate</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int representing height</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.chunk.Chunk.is_damaged">
+<tt class="descname">is_damaged</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.is_damaged" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether any damage is pending on this chunk.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -125,23 +208,38 @@ for doing this.</p>
 </table>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="bravo.chunk.Chunk.known_tile_entities">
+<tt class="descname">known_tile_entities</tt><a class="headerlink" href="#bravo.chunk.Chunk.known_tile_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dirty hack to work around mutual recursion during serialization.</p>
+<p>Odds are good that you don&#8217;t actually want to know why this is necessary.
+Ask me in person if you like, and then you can have some of my brain
+bleach later.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bravo.chunk.Chunk.populated">
+<tt class="descname">populated</tt><a class="headerlink" href="#bravo.chunk.Chunk.populated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this chunk has had its initial block data filled out.</p>
+</dd></dl>
+
 <dl class="method">
-<dt id="beta.chunk.Chunk.regenerate">
-<tt class="descname">regenerate</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.regenerate" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.regenerate">
+<tt class="descname">regenerate</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.regenerate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Regenerate all extraneous tables.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.regenerate_heightmap">
-<tt class="descname">regenerate_heightmap</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.regenerate_heightmap" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.regenerate_heightmap">
+<tt class="descname">regenerate_heightmap</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.regenerate_heightmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Regenerate the height map.</p>
 <p>The height map is merely the position of the tallest block in any
 xz-column.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.regenerate_skylight">
-<tt class="descname">regenerate_skylight</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.regenerate_skylight" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.regenerate_skylight">
+<tt class="descname">regenerate_skylight</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.regenerate_skylight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Regenerate the ambient light map.</p>
 <p>Each block&#8217;s individual light comes from two sources. The ambient
 light comes from the sky.</p>
@@ -149,41 +247,81 @@ light comes from the sky.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.save_to_packet">
-<tt class="descname">save_to_packet</tt><big>(</big><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.save_to_packet" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.save_to_packet">
+<tt class="descname">save_to_packet</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.save_to_packet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a chunk packet.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.sed">
-<tt class="descname">sed</tt><big>(</big><em>search</em>, <em>replace</em><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.sed" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.sed">
+<tt class="descname">sed</tt><big>(</big><em>search</em>, <em>replace</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.sed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a search and replace on all blocks in this chunk.</p>
 <p>Named after the ubiquitous Unix tool. Does a semantic
 s/search/replace/g on this chunk&#8217;s blocks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>search</strong> (<em>int</em>) &#8211; block to find</li>
+<li><strong>replace</strong> (<em>int</em>) &#8211; block to use as a replacement</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="beta.chunk.Chunk.set_block">
-<tt class="descname">set_block</tt><big>(</big><em>coords</em>, <em>block</em><big>)</big><a class="headerlink" href="#beta.chunk.Chunk.set_block" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.chunk.Chunk.set_block">
+<tt class="descname">set_block</tt><big>(</big><em>coords</em>, <em>block</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.set_block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update a block value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coords</strong> (<em>tuple</em>) &#8211; coordinate triplet</li>
+<li><strong>block</strong> (<em>int</em>) &#8211; block type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.chunk.Chunk.set_column">
+<tt class="descname">set_column</tt><big>(</big><em>x</em>, <em>z</em>, <em>column</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.set_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Atomically set an entire xz-column&#8217;s block data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.chunk.Chunk.set_metadata">
+<tt class="descname">set_metadata</tt><big>(</big><em>coords</em>, <em>metadata</em><big>)</big><a class="headerlink" href="#bravo.chunk.Chunk.set_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coords</strong> (<em>tuple</em>) &#8211; coordinate triplet</li>
+<li><strong>metadata</strong> (<em>int</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bravo.chunk.Chunk.tag">
+<tt class="descname">tag</tt><a class="headerlink" href="#bravo.chunk.Chunk.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The file backing this chunk.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="other-classes">
-<h2>Other Classes<a class="headerlink" href="#other-classes" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="beta.chunk.Chest">
-<em class="property">class </em><tt class="descclassname">beta.chunk.</tt><tt class="descname">Chest</tt><a class="headerlink" href="#beta.chunk.Chest" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="beta.chunk.TileEntity">
-<em class="property">class </em><tt class="descclassname">beta.chunk.</tt><tt class="descname">TileEntity</tt><a class="headerlink" href="#beta.chunk.TileEntity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
 </div>
 
 
@@ -192,21 +330,12 @@ s/search/replace/g on this chunk&#8217;s blocks.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">chunk</span></tt> &#8211; Chunk data structures</a><ul>
-<li><a class="reference internal" href="#main-classes">Main Classes</a></li>
-<li><a class="reference internal" href="#other-classes">Other Classes</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
   <p class="topless"><a href="blocks.html"
                         title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">blocks</span></tt> &#8211; Block descriptions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="factory.html"
-                        title="next chapter"><tt class="docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory</a></p>
+  <p class="topless"><a href="entity.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">entity</span></tt> &#8211; Entities</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/chunk.txt"
@@ -236,12 +365,15 @@ s/search/replace/g on this chunk&#8217;s blocks.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="factory.html" title="factory – Twisted factory"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="entity.html" title="entity – Entities"
              >next</a> |</li>
         <li class="right" >
           <a href="blocks.html" title="blocks – Block descriptions"
              >previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

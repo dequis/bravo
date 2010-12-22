@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>entity – Entities &mdash; Bravo v1.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="up" title="Core" href="core.html" />
+    <link rel="next" title="factory – Twisted factory" href="factory.html" />
+    <link rel="prev" title="chunk – Chunk data structures" href="chunk.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="factory.html" title="factory – Twisted factory"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chunk.html" title="chunk – Chunk data structures"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+          <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="entity-entities">
+<h1><tt class="docutils literal"><span class="pre">entity</span></tt> &#8211; Entities<a class="headerlink" href="#entity-entities" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">entity</span></tt> module contains entity classes.</p>
+<span class="target" id="module-bravo.entity"></span><dl class="class">
+<dt id="bravo.entity.Chest">
+<em class="property">class </em><tt class="descclassname">bravo.entity.</tt><tt class="descname">Chest</tt><a class="headerlink" href="#bravo.entity.Chest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.entity.TileEntity" title="bravo.entity.TileEntity"><tt class="xref py py-class docutils literal"><span class="pre">bravo.entity.TileEntity</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">bravo.serializers.alpha.ChestSerializer</span></tt></p>
+<p>A tile that holds items.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.entity.Entity">
+<em class="property">class </em><tt class="descclassname">bravo.entity.</tt><tt class="descname">Entity</tt><big>(</big><em>eid=0</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bravo.entity.Entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Class representing an entity.</p>
+<p>Entities are simply dynamic in-game objects. Plain entities are not very
+interesting; this class&#8217;s subclasses are actually useful.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.entity.Pickup">
+<em class="property">class </em><tt class="descclassname">bravo.entity.</tt><tt class="descname">Pickup</tt><big>(</big><em>eid=0</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bravo.entity.Pickup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.entity.Entity" title="bravo.entity.Entity"><tt class="xref py py-class docutils literal"><span class="pre">bravo.entity.Entity</span></tt></a></p>
+<p>Class representing a dropped block or item.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.entity.Player">
+<em class="property">class </em><tt class="descclassname">bravo.entity.</tt><tt class="descname">Player</tt><big>(</big><em>eid=0</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bravo.entity.Player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.entity.Entity" title="bravo.entity.Entity"><tt class="xref py py-class docutils literal"><span class="pre">bravo.entity.Entity</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">bravo.serializers.alpha.PlayerSerializer</span></tt></p>
+<p>A player entity.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.entity.Sign">
+<em class="property">class </em><tt class="descclassname">bravo.entity.</tt><tt class="descname">Sign</tt><a class="headerlink" href="#bravo.entity.Sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.entity.TileEntity" title="bravo.entity.TileEntity"><tt class="xref py py-class docutils literal"><span class="pre">bravo.entity.TileEntity</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">bravo.serializers.alpha.SignSerializer</span></tt></p>
+<p>A tile that stores text.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.entity.TileEntity">
+<em class="property">class </em><tt class="descclassname">bravo.entity.</tt><tt class="descname">TileEntity</tt><a class="headerlink" href="#bravo.entity.TileEntity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A block that is also an entity.</p>
+<p>Tiles have a separate serialization and saving step because they are
+stored in two places in the protocol.</p>
+<p>Upstream states that, at some point, tiles do eventually get specialized
+into either blocks or entities.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chunk.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">chunk</span></tt> &#8211; Chunk data structures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="factory.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/entity.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="factory.html" title="factory – Twisted factory"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chunk.html" title="chunk – Chunk data structures"
+             >previous</a> |</li>
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+          <li><a href="core.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Corbin Simpson &amp; Derrick Dymock.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

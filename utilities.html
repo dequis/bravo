@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>utilities – Helper functions &mdash; Beta v1.0 documentation</title>
+    <title>utilities – Helper functions &mdash; Bravo v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,10 +22,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Beta v1.0 documentation" href="index.html" />
-    <link rel="up" title="Auxiliary" href="aux.html" />
-    <link rel="next" title="Noise" href="noise.html" />
-    <link rel="prev" title="Auxiliary" href="aux.html" /> 
+    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="up" title="Auxiliary" href="auxiliary.html" />
+    <link rel="next" title="Tools" href="tools.html" />
+    <link rel="prev" title="simplex – Simplex noise generation" href="simplex.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,13 +35,16 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="noise.html" title="Noise"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tools.html" title="Tools"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="aux.html" title="Auxiliary"
+          <a href="simplex.html" title="simplex – Simplex noise generation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
-          <li><a href="aux.html" accesskey="U">Auxiliary</a> &raquo;</li> 
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+          <li><a href="auxiliary.html" accesskey="U">Auxiliary</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -58,8 +61,8 @@ critical code so that unit tests can be used to ensure a minimum of bugginess.</
 <div class="section" id="coordinate-handling">
 <h2>Coordinate Handling<a class="headerlink" href="#coordinate-handling" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="beta.utilities.split_coords">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">split_coords</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#beta.utilities.split_coords" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.utilities.split_coords">
+<tt class="descclassname">bravo.utilities.</tt><tt class="descname">split_coords</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.utilities.split_coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Split a pair of coordinates into chunk and subchunk coordinates.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -78,37 +81,13 @@ critical code so that unit tests can be used to ensure a minimum of bugginess.</
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="beta.utilities.triplet_to_index">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">triplet_to_index</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#beta.utilities.triplet_to_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the index for a set of subchunk coordinates.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>coords</strong> (<em>tuple</em>) &#8211; X, Y, Z coordinates</li>
-</ul>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">integer index into chunk data</p>
-</td>
-</tr>
-<tr class="field"><th class="field-name" colspan="2">Raises Exception:</th></tr>
-<tr><td>&nbsp;</td><td class="field-body"><p class="first last">the coordinates are out-of-bounds</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
 <div class="section" id="data-packing">
 <h2>Data Packing<a class="headerlink" href="#data-packing" title="Permalink to this headline">¶</a></h2>
 <p>More affectionately known as &#8220;bit-twiddling.&#8221;</p>
 <dl class="function">
-<dt id="beta.utilities.unpack_nibbles">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">unpack_nibbles</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#beta.utilities.unpack_nibbles" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.utilities.unpack_nibbles">
+<tt class="descclassname">bravo.utilities.</tt><tt class="descname">unpack_nibbles</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#bravo.utilities.unpack_nibbles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unpack bytes into pairs of nibbles.</p>
 <p>Nibbles are half-byte quantities. The nibbles unpacked by this function
 are returned as unsigned numeric values.</p>
@@ -135,8 +114,8 @@ are returned as unsigned numeric values.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="beta.utilities.pack_nibbles">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">pack_nibbles</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#beta.utilities.pack_nibbles" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.utilities.pack_nibbles">
+<tt class="descclassname">bravo.utilities.</tt><tt class="descname">pack_nibbles</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#bravo.utilities.pack_nibbles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pack pairs of nibbles into bytes.</p>
 <p>Bytes are returned as characters.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -144,11 +123,11 @@ are returned as unsigned numeric values.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>l</strong> (<em>list</em>) &#8211; nibbles to pack</li>
+<li><strong>a</strong> (<em>ndarray</em>) &#8211; nibbles to pack</li>
 </ul>
 </td>
 </tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of bytes</p>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">iterable yielding bytes</p>
 </td>
 </tr>
 </tbody>
@@ -159,48 +138,8 @@ are returned as unsigned numeric values.</p>
 <div class="section" id="trigonometry">
 <h2>Trigonometry<a class="headerlink" href="#trigonometry" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="beta.utilities.degs_to_rads">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">degs_to_rads</tt><big>(</big><em>degrees</em><big>)</big><a class="headerlink" href="#beta.utilities.degs_to_rads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert degrees to radians.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>degrees</strong> (<em>float</em>) &#8211; degrees</li>
-</ul>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">float in radians</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="beta.utilities.rads_to_degs">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">rads_to_degs</tt><big>(</big><em>radians</em><big>)</big><a class="headerlink" href="#beta.utilities.rads_to_degs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert radians to degrees.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>radians</strong> (<em>float</em>) &#8211; radians</li>
-</ul>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">float in degrees</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="beta.utilities.rotated_cosine">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">rotated_cosine</tt><big>(</big><em>x</em>, <em>y</em>, <em>theta</em>, <em>lambd</em><big>)</big><a class="headerlink" href="#beta.utilities.rotated_cosine" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.utilities.rotated_cosine">
+<tt class="descclassname">bravo.utilities.</tt><tt class="descname">rotated_cosine</tt><big>(</big><em>x</em>, <em>y</em>, <em>theta</em>, <em>lambd</em><big>)</big><a class="headerlink" href="#bravo.utilities.rotated_cosine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate a rotated 3D sinusoidal wave at a given point, angle, and
 wavelength.</p>
 <p>The function used is:</p>
@@ -228,36 +167,6 @@ at f(0, 0) and oscillates infinitely betwen 0 and 1.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="file-handling">
-<h2>File Handling<a class="headerlink" href="#file-handling" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="beta.utilities.retrieve_nbt">
-<tt class="descclassname">beta.utilities.</tt><tt class="descname">retrieve_nbt</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#beta.utilities.retrieve_nbt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempt to read an NBT blob from the file with the given filename.</p>
-<p>If the requested file does not exist, then the returned tag will be empty
-and will be saved to that file when write_file() is called on the tag.</p>
-<p>This function can and will make a good effort to create intermediate
-directories as needed.</p>
-<p>XXX should handle corner cases
-XXX should mmap() when possible
-XXX should use Twisted&#8217;s VFS</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; NBT file to load</li>
-</ul>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><cite>NBTFile</cite></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
 </div>
 
 
@@ -272,17 +181,16 @@ XXX should use Twisted&#8217;s VFS</p>
 <li><a class="reference internal" href="#coordinate-handling">Coordinate Handling</a></li>
 <li><a class="reference internal" href="#data-packing">Data Packing</a></li>
 <li><a class="reference internal" href="#trigonometry">Trigonometry</a></li>
-<li><a class="reference internal" href="#file-handling">File Handling</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="aux.html"
-                        title="previous chapter">Auxiliary</a></p>
+  <p class="topless"><a href="simplex.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">simplex</span></tt> &#8211; Simplex noise generation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="noise.html"
-                        title="next chapter">Noise</a></p>
+  <p class="topless"><a href="tools.html"
+                        title="next chapter">Tools</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/utilities.txt"
@@ -312,13 +220,16 @@ XXX should use Twisted&#8217;s VFS</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="noise.html" title="Noise"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tools.html" title="Tools"
              >next</a> |</li>
         <li class="right" >
-          <a href="aux.html" title="Auxiliary"
+          <a href="simplex.html" title="simplex – Simplex noise generation"
              >previous</a> |</li>
-        <li><a href="index.html">Beta v1.0 documentation</a> &raquo;</li>
-          <li><a href="aux.html" >Auxiliary</a> &raquo;</li> 
+        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+          <li><a href="auxiliary.html" >Auxiliary</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

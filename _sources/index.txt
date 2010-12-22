@@ -1,10 +1,10 @@
-.. Beta documentation master file, created by
+.. Bravo documentation master file, created by
    sphinx-quickstart on Thu Nov 25 04:33:31 2010.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Beta's documentation!
-================================
+Bravo
+=====
 
 Contents:
 
@@ -13,7 +13,8 @@ Contents:
 
    philosophy
    core
-   aux
+   auxiliary
+   tools
    noise
 
 Indices and tables
