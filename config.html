@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration &mdash; Bravo v1.2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
+    <link rel="next" title="Philosophy" href="philosophy.html" />
+    <link rel="prev" title="Server administration" href="administration.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="philosophy.html" title="Philosophy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="administration.html" title="Server administration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>Bravo uses a single configuration file, bravo.ini, for all of its settings.
+The file is in standard INI format. Note that this is nto the extended INI
+format of Windows 32-bit configuration settings, nor the format of PHP&#8217;s
+configuration files. Specifically, bravo.ini is parsed and written using
+Python&#8217;s <tt class="docutils literal"><span class="pre">ConfigParser</span></tt> class.</p>
+<p>An example configuration file is provided as bravo.ini.example.</p>
+<div class="section" id="general-settings">
+<h2>General settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings apply to all of Bravo. This section is named <tt class="docutils literal"><span class="pre">[bravo]</span></tt>.</p>
+<dl class="docutils">
+<dt>build_hooks</dt>
+<dd>Which build hooks to enable. Order matters!</dd>
+<dt>dig_hooks</dt>
+<dd>Which dig hooks to enable. Order matters!</dd>
+<dt>generators</dt>
+<dd>Which terrain generators to use. Order matters!</dd>
+<dt>fancy_console</dt>
+<dd>Whether to enable the fancy console in standalone mode. This setting will
+be overridden if the fancy console cannot be set up; e.g. on Win32
+systems.</dd>
+<dt>ampoule</dt>
+<dd>Whether asynchronous chunk generators will be used. This can result in
+massive improvements to Bravo&#8217;s latency and responsiveness, and defaults
+to enabled. This setting will be overridden if Ampoule cannot be found.</dd>
+</dl>
+</div>
+<div class="section" id="world-settings">
+<h2>World settings<a class="headerlink" href="#world-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings only apply to a specific world. Worlds are created by starting
+the section of the configuration with &#8220;world&#8221;; an example world section might
+start with <tt class="docutils literal"><span class="pre">[world</span> <span class="pre">example]</span></tt>.</p>
+<dl class="docutils">
+<dt>port</dt>
+<dd>Which port to run on. Must be a number between 0 and 65535. Note that
+ports below 1024 are typically privileged and cannot be bound by non-root
+users.</dd>
+<dt>host</dt>
+<dd>The hostname to bind to. Defaults to no hostname, which is usually correct
+for most people. If you don&#8217;t know what this is, you don&#8217;t need it.</dd>
+<dt>url</dt>
+<dd>The path to the folder to use for loading and saving world data. Must be a
+valid URL.</dd>
+<dt>authenticator</dt>
+<dd>Which authentication plugin to use.</dd>
+<dt>serializer</dt>
+<dd>Which serializer to use for saving worlds. Currently, the &#8220;alpha&#8221; and
+&#8220;beta&#8221; serializers are provided for MC Alpha and MC Beta compatibility,
+respectively.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#general-settings">General settings</a></li>
+<li><a class="reference internal" href="#world-settings">World settings</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="administration.html"
+                        title="previous chapter">Server administration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="philosophy.html"
+                        title="next chapter">Philosophy</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/config.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="philosophy.html" title="Philosophy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="administration.html" title="Server administration"
+             >previous</a> |</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Corbin Simpson &amp; Derrick Dymock.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

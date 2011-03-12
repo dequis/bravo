@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>plugin – Plugin loaders &mdash; Bravo v1.0 documentation</title>
+    <title>plugin – Plugin loaders &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,9 +22,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
-    <link rel="next" title="protocol – Twisted protocol" href="protocol.html" />
+    <link rel="next" title="protocols – Twisted protocols" href="protocol.html" />
     <link rel="prev" title="packets – Packet serializers" href="packets.html" /> 
   </head>
   <body>
@@ -38,12 +38,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="protocol.html" title="protocol – Twisted protocol"
+          <a href="protocol.html" title="protocols – Twisted protocols"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="packets.html" title="packets – Packet serializers"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -59,14 +59,20 @@
 <tt class="docutils literal"><span class="pre">twisted.plugin</span></tt>. <tt class="docutils literal"><span class="pre">plugin</span></tt> makes loading plugins simpler.</p>
 <span class="target" id="module-bravo.plugin"></span><dl class="exception">
 <dt id="bravo.plugin.PluginException">
-<em class="property">exception </em><tt class="descclassname">bravo.plugin.</tt><tt class="descname">PluginException</tt><a class="headerlink" href="#bravo.plugin.PluginException" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><tt class="descclassname">bravo.plugin.</tt><tt class="descname">PluginException</tt><a class="reference internal" href="_modules/bravo/plugin.html#PluginException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.plugin.PluginException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
 <p>Signal an error encountered during plugin handling.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="bravo.plugin.add_plugin_edges">
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">add_plugin_edges</tt><big>(</big><em>d</em><big>)</big><a class="reference internal" href="_modules/bravo/plugin.html#add_plugin_edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.plugin.add_plugin_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mirror edges to all plugins in a dictionary.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="bravo.plugin.retrieve_named_plugins">
-<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_named_plugins</tt><big>(</big><em>interface</em>, <em>names</em><big>)</big><a class="headerlink" href="#bravo.plugin.retrieve_named_plugins" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_named_plugins</tt><big>(</big><em>interface</em>, <em>names</em><big>)</big><a class="reference internal" href="_modules/bravo/plugin.html#retrieve_named_plugins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.plugin.retrieve_named_plugins" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look up a list of plugins by name.</p>
 <p>Plugins are returned in the same order as their names.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -92,7 +98,7 @@
 
 <dl class="function">
 <dt id="bravo.plugin.retrieve_plugins">
-<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_plugins</tt><big>(</big><em>interface</em>, <em>cached=True</em>, <em>cache={}</em><big>)</big><a class="headerlink" href="#bravo.plugin.retrieve_plugins" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_plugins</tt><big>(</big><em>interface</em>, <em>cached=True</em>, <em>cache={}</em><big>)</big><a class="reference internal" href="_modules/bravo/plugin.html#retrieve_plugins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.plugin.retrieve_plugins" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look up all plugins for a certain interface.</p>
 <p>If the plugin cache is enabled, this function will not attempt to reload
 plugins from disk or discover new plugins.</p>
@@ -117,6 +123,29 @@ plugins from disk or discover new plugins.</p>
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="bravo.plugin.retrieve_sorted_plugins">
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">retrieve_sorted_plugins</tt><big>(</big><em>interface</em>, <em>names</em><big>)</big><a class="reference internal" href="_modules/bravo/plugin.html#retrieve_sorted_plugins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.plugin.retrieve_sorted_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look up a list of plugins, sorted by interdependencies.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bravo.plugin.sort_plugins">
+<tt class="descclassname">bravo.plugin.</tt><tt class="descname">sort_plugins</tt><big>(</big><em>plugins</em><big>)</big><a class="reference internal" href="_modules/bravo/plugin.html#sort_plugins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.plugin.sort_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a sorted list of plugins by dependency.</p>
+<p>If the list cannot be arranged into a DAG, an error will be raised. This
+usually means that a cyclic dependency was found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name" colspan="2">Raises PluginException:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">cyclic dependency detected</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
@@ -130,7 +159,7 @@ plugins from disk or discover new plugins.</p>
                         title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">packets</span></tt> &#8211; Packet serializers</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="protocol.html"
-                        title="next chapter"><tt class="docutils literal"><span class="pre">protocol</span></tt> &#8211; Twisted protocol</a></p>
+                        title="next chapter"><tt class="docutils literal"><span class="pre">protocols</span></tt> &#8211; Twisted protocols</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/plugin.txt"
@@ -163,12 +192,12 @@ plugins from disk or discover new plugins.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="protocol.html" title="protocol – Twisted protocol"
+          <a href="protocol.html" title="protocols – Twisted protocols"
              >next</a> |</li>
         <li class="right" >
           <a href="packets.html" title="packets – Packet serializers"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

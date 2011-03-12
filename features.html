@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Features &mdash; Bravo v1.2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="prev" title="Bravo" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="Plugins"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Bravo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<p>Bravo&#8217;s extensible design means that there are many different plugins and
+features. Since most servers do not have an extensive or exhaustive list of
+the various plugins that they include, one is provided here for Bravo.</p>
+<div class="section" id="standard-features">
+<h2>Standard features<a class="headerlink" href="#standard-features" title="Permalink to this headline">¶</a></h2>
+<p>These features are found in official, Mojang-sponsored, unmodified servers.</p>
+<div class="section" id="console">
+<h3>Console<a class="headerlink" href="#console" title="Permalink to this headline">¶</a></h3>
+<p>Bravo provides a small, plain console suitable for piping input and output, as
+well as interactive sessions.</p>
+</div>
+<div class="section" id="login">
+<h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
+<p>Bravo supports the two login methods supported by the Mojang-sponsored client:
+offline authentication and online authentication.</p>
+</div>
+<div class="section" id="geometry">
+<h3>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h3>
+<p>Bravo understands how to manipulate and transfer geometry. In addition, Bravo
+can read and write the NBT disk format.</p>
+</div>
+<div class="section" id="time">
+<h3>Time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
+<p>Bravo fully implements the in-game day and night. Bravo&#8217;s days are exactly 20
+minutes long.</p>
+</div>
+<div class="section" id="entities">
+<h3>Entities<a class="headerlink" href="#entities" title="Permalink to this headline">¶</a></h3>
+<p>Bravo understands the concept of entities, and is able to track the following
+kinds of entities:</p>
+<blockquote>
+<ul class="simple">
+<li>Players</li>
+<li>Pickups</li>
+<li>Tiles</li>
+</ul>
+</blockquote>
+<div class="section" id="tiles">
+<h4>Tiles<a class="headerlink" href="#tiles" title="Permalink to this headline">¶</a></h4>
+<p>Bravo understands the following tiles:</p>
+<blockquote>
+<ul class="simple">
+<li>Chests</li>
+<li>Signs</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div class="section" id="inventory">
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h3>
+<p>Bravo provides server-side inventory handling.</p>
+</div>
+<div class="section" id="physics">
+<h3>Physics<a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h3>
+<p>Bravo simulates physics, including the behaviors of sand, gravel, water, and
+lava.</p>
+</div>
+</div>
+<div class="section" id="extended-features">
+<h2>Extended features<a class="headerlink" href="#extended-features" title="Permalink to this headline">¶</a></h2>
+<p>Bravo provides many things not in other servers. While a strict comparison of
+other open-source servers is impossible due to the speedy rate at which they
+are changing, the features that separate Bravo from the Mojang-sponsored
+server are listed here.</p>
+<div class="section" id="id1">
+<h3>Console<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Bravo ships with a fancy console which supports readline-like editing
+features.</p>
+</div>
+<div class="section" id="id2">
+<h3>Time<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Bravo implements an in-game year of 360 in-game days.</p>
+</div>
+<div class="section" id="plugins">
+<h3>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h3>
+<p>Bravo supports several different types of plugins. For more information, see
+:ref:<tt class="docutils literal"><span class="pre">Plugins</span></tt>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Features</a><ul>
+<li><a class="reference internal" href="#standard-features">Standard features</a><ul>
+<li><a class="reference internal" href="#console">Console</a></li>
+<li><a class="reference internal" href="#login">Login</a></li>
+<li><a class="reference internal" href="#geometry">Geometry</a></li>
+<li><a class="reference internal" href="#time">Time</a></li>
+<li><a class="reference internal" href="#entities">Entities</a><ul>
+<li><a class="reference internal" href="#tiles">Tiles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inventory">Inventory</a></li>
+<li><a class="reference internal" href="#physics">Physics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extended-features">Extended features</a><ul>
+<li><a class="reference internal" href="#id1">Console</a></li>
+<li><a class="reference internal" href="#id2">Time</a></li>
+<li><a class="reference internal" href="#plugins">Plugins</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Bravo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plugins.html"
+                        title="next chapter">Plugins</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/features.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="Plugins"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Bravo"
+             >previous</a> |</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Corbin Simpson &amp; Derrick Dymock.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

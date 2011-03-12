@@ -9,13 +9,18 @@ Bravo
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
+   features
+   plugins
+   differences
+   administration
+   config
    philosophy
+   noise
    core
    auxiliary
    tools
-   noise
 
 Indices and tables
 ==================

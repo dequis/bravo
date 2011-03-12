@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Differences &mdash; Bravo v1.2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
+    <link rel="next" title="Server administration" href="administration.html" />
+    <link rel="prev" title="Plugins" href="plugins.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="administration.html" title="Server administration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="Plugins"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="differences">
+<h1>Differences<a class="headerlink" href="#differences" title="Permalink to this headline">¶</a></h1>
+<p>Bravo was written from the ground up and doesn&#8217;t inherit code from any other
+Minecraft project. This means that it sometimes behaves very differently, in
+subtle and obvious ways, from other servers.</p>
+<p>The &#8220;Notchian&#8221; server is the server authored by Notch and distributed by
+Mojang as a companion to the Mojang-sponsored client.</p>
+<div class="section" id="chunks">
+<h2>Chunks<a class="headerlink" href="#chunks" title="Permalink to this headline">¶</a></h2>
+<p>The Notchian server maintains a floating pattern above players, centered on
+the chunk the player is standing in. This pattern is always a square of
+chunks, 21 chunks to a side. This results in a total of 441 chunks being
+deployed to the client at any one time. All 441 chunks are deployed before the
+client is permitted to interact with the world.</p>
+<p>Bravo does something slightly different; while Bravo also has a floating
+pattern above each of its players, the pattern is a circle with the same
+diameter as the Notchian server&#8217;s square. This effectively results in a circle
+of 315 chunks deployed to the client; a savings of nearly 30% in memory and
+bandwidth for chunks. Additionally, only the 50 closest chunks are deployed
+before the client is spawned and permitted to interact with the world.</p>
+</div>
+<div class="section" id="inventory">
+<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
+<p>The Notchian viewpoint of items in the inventory is as a list of slots. Each
+slot holds an item, identified by a single number, and can hold 1 to 64
+instances of that item. Some items can be damaged. Some items are completely
+different depending on their damage.</p>
+<p>Bravo views item identifiers as a composite key of a primary and secondary
+identifier. In this scheme, items with identical primary keys and different
+secondary keys are properly segregated, and item damage is stored as the
+secondary key, keeping items with differing amounts of damage from occupying
+the same slot. This avoids an entire class of bugs, where items can be
+stacked and unstacked to change the amount of damage on them, which have
+historically plagued the Notchian codebase.</p>
+</div>
+<div class="section" id="minecarts">
+<h2>Minecarts<a class="headerlink" href="#minecarts" title="Permalink to this headline">¶</a></h2>
+<p>The following blocks may have minecart tracks placed on them in Bravo, but not
+in the Notchian server:</p>
+<blockquote>
+<ul class="simple">
+<li>Glass</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Differences</a><ul>
+<li><a class="reference internal" href="#chunks">Chunks</a></li>
+<li><a class="reference internal" href="#inventory">Inventory</a></li>
+<li><a class="reference internal" href="#minecarts">Minecarts</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plugins.html"
+                        title="previous chapter">Plugins</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="administration.html"
+                        title="next chapter">Server administration</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/differences.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="administration.html" title="Server administration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="Plugins"
+             >previous</a> |</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Corbin Simpson &amp; Derrick Dymock.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

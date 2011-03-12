@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Core &mdash; Bravo v1.0 documentation</title>
+    <title>Core &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,9 +22,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
-    <link rel="next" title="alpha – Alpha objects" href="alpha.html" />
-    <link rel="prev" title="Philosophy" href="philosophy.html" /> 
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
+    <link rel="next" title="blocks – Block descriptions" href="blocks.html" />
+    <link rel="prev" title="Noise" href="noise.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,12 +37,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="alpha.html" title="alpha – Alpha objects"
+          <a href="blocks.html" title="blocks – Block descriptions"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="philosophy.html" title="Philosophy"
+          <a href="noise.html" title="Noise"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -56,19 +56,27 @@
 <p>These modules comprise the core functionality of Bravo.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="alpha.html"><tt class="docutils literal"><span class="pre">alpha</span></tt> &#8211; Alpha objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blocks.html"><tt class="docutils literal"><span class="pre">blocks</span></tt> &#8211; Block descriptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chunk.html"><tt class="docutils literal"><span class="pre">chunk</span></tt> &#8211; Chunk data structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entity.html"><tt class="docutils literal"><span class="pre">entity</span></tt> &#8211; Entities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="factory.html"><tt class="docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="factory.html"><tt class="docutils literal"><span class="pre">factories</span></tt> &#8211; Twisted factories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#module-bravo.factories.beta">MineCraft Beta factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#module-bravo.factories.infini">InfiniCraft factories</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ibravo.html"><tt class="docutils literal"><span class="pre">ibravo</span></tt> &#8211; Interfaces</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ibravo.html#plugins">Plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ibravo.html#hooks">Hooks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="location.html"><tt class="docutils literal"><span class="pre">location</span></tt> &#8211; Locations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packets.html"><tt class="docutils literal"><span class="pre">packets</span></tt> &#8211; Packet serializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugin.html"><tt class="docutils literal"><span class="pre">plugin</span></tt> &#8211; Plugin loaders</a></li>
-<li class="toctree-l1"><a class="reference internal" href="protocol.html"><tt class="docutils literal"><span class="pre">protocol</span></tt> &#8211; Twisted protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html"><tt class="docutils literal"><span class="pre">protocols</span></tt> &#8211; Twisted protocols</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#module-bravo.protocols.beta">MineCraft Beta protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#module-bravo.protocols.infini">InfiniCraft protocols</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="stdio.html"><tt class="docutils literal"><span class="pre">stdio</span></tt> &#8211; Console support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="world.html"><tt class="docutils literal"><span class="pre">world</span></tt> &#8211; Worlds</a></li>
 </ul>
@@ -82,11 +90,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="philosophy.html"
-                        title="previous chapter">Philosophy</a></p>
+  <p class="topless"><a href="noise.html"
+                        title="previous chapter">Noise</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="alpha.html"
-                        title="next chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">alpha</span></tt> &#8211; Alpha objects</a></p>
+  <p class="topless"><a href="blocks.html"
+                        title="next chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">blocks</span></tt> &#8211; Block descriptions</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/core.txt"
@@ -119,12 +127,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="alpha.html" title="alpha – Alpha objects"
+          <a href="blocks.html" title="blocks – Block descriptions"
              >next</a> |</li>
         <li class="right" >
-          <a href="philosophy.html" title="Philosophy"
+          <a href="noise.html" title="Noise"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

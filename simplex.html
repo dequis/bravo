@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>simplex – Simplex noise generation &mdash; Bravo v1.0 documentation</title>
+    <title>simplex – Simplex noise generation &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
     <link rel="up" title="Auxiliary" href="auxiliary.html" />
     <link rel="next" title="utilities – Helper functions" href="utilities.html" />
     <link rel="prev" title="compat – Backwards compatibility" href="compat.html" /> 
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="compat.html" title="compat – Backwards compatibility"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="auxiliary.html" accesskey="U">Auxiliary</a> &raquo;</li> 
       </ul>
     </div>  
@@ -56,14 +56,20 @@
   <div class="section" id="module-bravo.simplex">
 <span id="simplex-simplex-noise-generation"></span><h1><tt class="docutils literal"><span class="pre">simplex</span></tt> &#8211; Simplex noise generation<a class="headerlink" href="#module-bravo.simplex" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="bravo.simplex.dot">
-<tt class="descclassname">bravo.simplex.</tt><tt class="descname">dot</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="headerlink" href="#bravo.simplex.dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dot product of two vectors.</p>
+<dt id="bravo.simplex.dot2">
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">dot2</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#dot2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.dot2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dot product of two 2-dimensional vectors.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bravo.simplex.dot3">
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">dot3</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#dot3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.dot3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dot product of two 3-dimensional vectors.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="bravo.simplex.octaves2">
-<tt class="descclassname">bravo.simplex.</tt><tt class="descname">octaves2</tt><big>(</big><em>x</em>, <em>y</em>, <em>count</em><big>)</big><a class="headerlink" href="#bravo.simplex.octaves2" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">octaves2</tt><big>(</big><em>x</em>, <em>y</em>, <em>count</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#octaves2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.octaves2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate fractal octaves of noise.</p>
 <p>Summing increasingly scaled amounts of noise with itself creates fractal
 clouds of noise.</p>
@@ -87,7 +93,7 @@ clouds of noise.</p>
 
 <dl class="function">
 <dt id="bravo.simplex.octaves3">
-<tt class="descclassname">bravo.simplex.</tt><tt class="descname">octaves3</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>count</em><big>)</big><a class="headerlink" href="#bravo.simplex.octaves3" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">octaves3</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>count</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#octaves3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.octaves3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate fractal octaves of noise.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -109,14 +115,37 @@ clouds of noise.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="bravo.simplex.offset2">
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">offset2</tt><big>(</big><em>x</em>, <em>y</em>, <em>xoffset</em>, <em>yoffset</em>, <em>octaves=1</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#offset2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.offset2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an offset noise difference field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>int</em>) &#8211; X coordinate</li>
+<li><strong>y</strong> (<em>int</em>) &#8211; Y coordinate</li>
+<li><strong>xoffset</strong> (<em>int</em>) &#8211; X offset</li>
+<li><strong>yoffset</strong> (<em>int</em>) &#8211; Y offset</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Difference of noises</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="bravo.simplex.reseed">
-<tt class="descclassname">bravo.simplex.</tt><tt class="descname">reseed</tt><big>(</big><em>seed</em><big>)</big><a class="headerlink" href="#bravo.simplex.reseed" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">reseed</tt><big>(</big><em>seed</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#reseed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.reseed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reseed the simplex gradient field.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="bravo.simplex.simplex2">
-<tt class="descclassname">bravo.simplex.</tt><tt class="descname">simplex2</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#bravo.simplex.simplex2" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">simplex2</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#simplex2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.simplex2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate simplex noise at the given coordinates.</p>
 <p>This particular implementation has very high chaotic features at normal
 resolution; zooming in by a factor of 16x to 256x is going to yield more
@@ -146,7 +175,7 @@ pleasing results for most applications.</p>
 
 <dl class="function">
 <dt id="bravo.simplex.simplex3">
-<tt class="descclassname">bravo.simplex.</tt><tt class="descname">simplex3</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.simplex.simplex3" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">bravo.simplex.</tt><tt class="descname">simplex3</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em><big>)</big><a class="reference internal" href="_modules/bravo/simplex.html#simplex3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.simplex.simplex3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate simplex noise at the given coordinates.</p>
 <p>This is a 3-dimensional flavor of <tt class="docutils literal"><span class="pre">simplex2()</span></tt>; all of the same caveats
 apply.</p>
@@ -226,7 +255,7 @@ function somehow</p>
         <li class="right" >
           <a href="compat.html" title="compat – Backwards compatibility"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="auxiliary.html" >Auxiliary</a> &raquo;</li> 
       </ul>
     </div>

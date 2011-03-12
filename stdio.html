@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>stdio – Console support &mdash; Bravo v1.0 documentation</title>
+    <title>stdio – Console support &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,10 +22,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
     <link rel="next" title="world – Worlds" href="world.html" />
-    <link rel="prev" title="protocol – Twisted protocol" href="protocol.html" /> 
+    <link rel="prev" title="protocols – Twisted protocols" href="protocol.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,9 +41,9 @@
           <a href="world.html" title="world – Worlds"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="protocol.html" title="protocol – Twisted protocol"
+          <a href="protocol.html" title="protocols – Twisted protocols"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -58,8 +58,32 @@
 <p>The <tt class="docutils literal"><span class="pre">stdio</span></tt> module provides a non-blocking, interactive console for
 administration, diagnostics, and debugging of running servers.</p>
 <span class="target" id="module-bravo.stdio"></span><dl class="class">
+<dt id="bravo.stdio.AMPGateway">
+<em class="property">class </em><tt class="descclassname">bravo.stdio.</tt><tt class="descname">AMPGateway</tt><big>(</big><em>host</em>, <em>port</em><big>)</big><a class="reference internal" href="_modules/bravo/stdio.html#AMPGateway"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.stdio.AMPGateway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Wrapper around the logical implementation of a console.</p>
+<dl class="method">
+<dt id="bravo.stdio.AMPGateway.call">
+<tt class="descname">call</tt><big>(</big><em>command</em>, <em>params</em><big>)</big><a class="reference internal" href="_modules/bravo/stdio.html#AMPGateway.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.stdio.AMPGateway.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a command.</p>
+<p>This is the client-side implementation; it wraps a few things to
+protect the console from raw logic and the server from builtin
+commands.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.stdio.BravoConsole">
+<em class="property">class </em><tt class="descclassname">bravo.stdio.</tt><tt class="descname">BravoConsole</tt><big>(</big><em>ag</em><big>)</big><a class="reference internal" href="_modules/bravo/stdio.html#BravoConsole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.stdio.BravoConsole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.protocols.basic.LineReceiver</span></tt></p>
+<p>A console for things not quite as awesome as TTYs.</p>
+<p>This console is extremely well-suited to Win32.</p>
+</dd></dl>
+
+<dl class="class">
 <dt id="bravo.stdio.BravoManhole">
-<em class="property">class </em><tt class="descclassname">bravo.stdio.</tt><tt class="descname">BravoManhole</tt><big>(</big><em>namespace=None</em><big>)</big><a class="headerlink" href="#bravo.stdio.BravoManhole" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">bravo.stdio.</tt><tt class="descname">BravoManhole</tt><big>(</big><em>factory</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/bravo/stdio.html#BravoManhole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.stdio.BravoManhole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.conch.manhole.Manhole</span></tt></p>
 <p>A console for TTYs.</p>
 </dd></dl>
@@ -74,7 +98,7 @@ administration, diagnostics, and debugging of running servers.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="protocol.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">protocol</span></tt> &#8211; Twisted protocol</a></p>
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">protocols</span></tt> &#8211; Twisted protocols</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="world.html"
                         title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">world</span></tt> &#8211; Worlds</a></p>
@@ -113,9 +137,9 @@ administration, diagnostics, and debugging of running servers.</p>
           <a href="world.html" title="world – Worlds"
              >next</a> |</li>
         <li class="right" >
-          <a href="protocol.html" title="protocol – Twisted protocol"
+          <a href="protocol.html" title="protocols – Twisted protocols"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

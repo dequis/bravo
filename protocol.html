@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>protocol – Twisted protocol &mdash; Bravo v1.0 documentation</title>
+    <title>protocols – Twisted protocols &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
     <link rel="next" title="stdio – Console support" href="stdio.html" />
     <link rel="prev" title="plugin – Plugin loaders" href="plugin.html" /> 
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="plugin.html" title="plugin – Plugin loaders"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -53,16 +53,214 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-bravo.protocol">
-<span id="protocol-twisted-protocol"></span><h1><tt class="docutils literal"><span class="pre">protocol</span></tt> &#8211; Twisted protocol<a class="headerlink" href="#module-bravo.protocol" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="protocols-twisted-protocols">
+<h1><tt class="docutils literal"><span class="pre">protocols</span></tt> &#8211; Twisted protocols<a class="headerlink" href="#protocols-twisted-protocols" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">protocols</span></tt> package hosts protocol classes for various wire protocols.</p>
+<div class="section" id="module-bravo.protocols.beta">
+<span id="minecraft-beta-protocols"></span><h2>MineCraft Beta protocols<a class="headerlink" href="#module-bravo.protocols.beta" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="bravo.protocol.BetaProtocol">
-<em class="property">class </em><tt class="descclassname">bravo.protocol.</tt><tt class="descname">BetaProtocol</tt><a class="headerlink" href="#bravo.protocol.BetaProtocol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.internet.protocol.Protocol</span></tt></p>
-<p>The Minecraft Alpha protocol.</p>
+<dt id="bravo.protocols.beta.BannedProtocol">
+<em class="property">class </em><tt class="descclassname">bravo.protocols.beta.</tt><tt class="descname">BannedProtocol</tt><a class="reference internal" href="_modules/bravo/protocols/beta.html#BannedProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BannedProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.protocols.beta.BetaServerProtocol" title="bravo.protocols.beta.BetaServerProtocol"><tt class="xref py py-class docutils literal"><span class="pre">bravo.protocols.beta.BetaServerProtocol</span></tt></a></p>
+<p>A very simple Beta protocol that helps enforce IP bans.</p>
+<p>This protocol disconnects people as soon as they connect, with a helpful
+message.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.protocols.beta.BetaProxyProtocol">
+<em class="property">class </em><tt class="descclassname">bravo.protocols.beta.</tt><tt class="descname">BetaProxyProtocol</tt><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaProxyProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaProxyProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.protocols.beta.BetaServerProtocol" title="bravo.protocols.beta.BetaServerProtocol"><tt class="xref py py-class docutils literal"><span class="pre">bravo.protocols.beta.BetaServerProtocol</span></tt></a></p>
+<p>A <tt class="docutils literal"><span class="pre">BetaServerProtocol</span></tt> that proxies for an InfiniCraft client.</p>
 <dl class="method">
-<dt id="bravo.protocol.BetaProtocol.enable_chunk">
-<tt class="descname">enable_chunk</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.protocol.BetaProtocol.enable_chunk" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BetaProxyProtocol.add_node">
+<tt class="descname">add_node</tt><big>(</big><em>address</em>, <em>port</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaProxyProtocol.add_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaProxyProtocol.add_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new node to this client.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.protocols.beta.BetaServerProtocol">
+<em class="property">class </em><tt class="descclassname">bravo.protocols.beta.</tt><tt class="descname">BetaServerProtocol</tt><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.internet.protocol.Protocol</span></tt></p>
+<p>The Minecraft Alpha/Beta server protocol.</p>
+<p>This class is mostly designed to be a skeleton for featureful clients. It
+tries hard to not step on the toes of potential subclasses.</p>
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.action">
+<tt class="descname">action</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for action packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.animate">
+<tt class="descname">animate</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.animate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for animate packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.authenticated">
+<tt class="descname">authenticated</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.authenticated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.authenticated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the client has successfully authenticated with the server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.build">
+<tt class="descname">build</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for build packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.challenged">
+<tt class="descname">challenged</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.challenged"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.challenged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the client has started authentication with the server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.chat">
+<tt class="descname">chat</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.chat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.chat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for chat packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.digging">
+<tt class="descname">digging</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.digging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.digging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for digging packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.equip">
+<tt class="descname">equip</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.equip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.equip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for equip packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.error">
+<tt class="descname">error</tt><big>(</big><em>message</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error out.</p>
+<p>This method sends <tt class="docutils literal"><span class="pre">message</span></tt> to the client as a descriptive error
+message, then closes the connection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.grounded">
+<tt class="descname">grounded</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.grounded"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.grounded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for grounded packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.handshake">
+<tt class="descname">handshake</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.handshake"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.handshake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for handshake packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.inventory">
+<tt class="descname">inventory</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.inventory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for inventory packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.location_packet">
+<tt class="descname">location_packet</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.location_packet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.location_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for location packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.login">
+<tt class="descname">login</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for login packets.</p>
+<p>Override this to customize how logins are handled. By default, this
+method will only confirm that the negotiated wire protocol is the
+correct version, and then it will run the <tt class="docutils literal"><span class="pre">authenticated()</span></tt>
+callback.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.orientation">
+<tt class="descname">orientation</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.orientation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for orientation packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.orientation_changed">
+<tt class="descname">orientation_changed</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.orientation_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.orientation_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the client moves.</p>
+<p>This callback is only for orientation, not position.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.pickup">
+<tt class="descname">pickup</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.pickup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.pickup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for pickup packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.ping">
+<tt class="descname">ping</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.ping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.ping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for ping packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.position">
+<tt class="descname">position</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for position packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.position_changed">
+<tt class="descname">position_changed</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.position_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.position_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the client moves.</p>
+<p>This callback is only for position, not orientation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.quit">
+<tt class="descname">quit</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.quit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.quit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for quit packets.</p>
+<p>By default, merely logs the quit message and drops the connection.</p>
+<p>Even if the connection is not dropped, it will be lost anyway since
+the client will close the connection. It&#8217;s better to explicitly let it
+go here than to have zombie protocols.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.sign">
+<tt class="descname">sign</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.sign"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for sign packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.update_ping">
+<tt class="descname">update_ping</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.update_ping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.update_ping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a keepalive to the client.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.waction">
+<tt class="descname">waction</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.waction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.waction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for waction packets.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BetaServerProtocol.wclose">
+<tt class="descname">wclose</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BetaServerProtocol.wclose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BetaServerProtocol.wclose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for wclose packets.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.protocols.beta.BravoProtocol">
+<em class="property">class </em><tt class="descclassname">bravo.protocols.beta.</tt><tt class="descname">BravoProtocol</tt><a class="reference internal" href="_modules/bravo/protocols/beta.html#BravoProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BravoProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bravo.protocols.beta.BetaServerProtocol" title="bravo.protocols.beta.BetaServerProtocol"><tt class="xref py py-class docutils literal"><span class="pre">bravo.protocols.beta.BetaServerProtocol</span></tt></a></p>
+<p>A <tt class="docutils literal"><span class="pre">BetaServerProtocol</span></tt> suitable for serving MC worlds to clients.</p>
+<p>This protocol really does need to be hooked up with a <tt class="docutils literal"><span class="pre">BravoFactory</span></tt> or
+something very much like it.</p>
+<dl class="method">
+<dt id="bravo.protocols.beta.BravoProtocol.enable_chunk">
+<tt class="descname">enable_chunk</tt><big>(</big><em>x</em>, <em>z</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BravoProtocol.enable_chunk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BravoProtocol.enable_chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request a chunk.</p>
 <p>This function will asynchronously obtain the chunk, and send it on the
 wire.</p>
@@ -77,16 +275,33 @@ with no arguments</td>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="bravo.protocols.beta.BravoProtocol.entities_near">
+<tt class="descname">entities_near</tt><big>(</big><em>radius</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BravoProtocol.entities_near"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BravoProtocol.entities_near" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the entities within a radius of this player.</p>
+<p>Radius is measured in blocks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.protocols.beta.BravoProtocol.login">
+<tt class="descname">login</tt><big>(</big><em>container</em><big>)</big><a class="reference internal" href="_modules/bravo/protocols/beta.html#BravoProtocol.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.protocols.beta.BravoProtocol.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle a login packet.</p>
+<p>This method wraps a login hook which is permitted to do just about
+anything, as long as it&#8217;s asynchronous. The hook returns a
+<tt class="docutils literal"><span class="pre">Deferred</span></tt>, which is chained to authenticate the user or disconnect
+them depending on the results of the authentication.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
-<dt id="bravo.protocol.BuildData">
-<em class="property">class </em><tt class="descclassname">bravo.protocol.</tt><tt class="descname">BuildData</tt><a class="headerlink" href="#bravo.protocol.BuildData" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BuildData">
+<em class="property">class </em><tt class="descclassname">bravo.protocols.beta.</tt><tt class="descname">BuildData</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">tuple</span></tt></p>
-<p>BuildData(block, x, y, z, face)</p>
+<p>BuildData(block, metadata, x, y, z, face)</p>
 <dl class="attribute">
-<dt id="bravo.protocol.BuildData.block">
-<tt class="descname">block</tt><a class="headerlink" href="#bravo.protocol.BuildData.block" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BuildData.block">
+<tt class="descname">block</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData.block" title="Permalink to this definition">¶</a></dt>
 <dd><p>itemgetter(item, ...) &#8211;&gt; itemgetter object</p>
 <p>Return a callable object that fetches the given item(s) from its operand.
 After, f=itemgetter(2), the call f(r) returns r[2].
@@ -94,8 +309,8 @@ After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="bravo.protocol.BuildData.face">
-<tt class="descname">face</tt><a class="headerlink" href="#bravo.protocol.BuildData.face" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BuildData.face">
+<tt class="descname">face</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData.face" title="Permalink to this definition">¶</a></dt>
 <dd><p>itemgetter(item, ...) &#8211;&gt; itemgetter object</p>
 <p>Return a callable object that fetches the given item(s) from its operand.
 After, f=itemgetter(2), the call f(r) returns r[2].
@@ -103,8 +318,8 @@ After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="bravo.protocol.BuildData.x">
-<tt class="descname">x</tt><a class="headerlink" href="#bravo.protocol.BuildData.x" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BuildData.metadata">
+<tt class="descname">metadata</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>itemgetter(item, ...) &#8211;&gt; itemgetter object</p>
 <p>Return a callable object that fetches the given item(s) from its operand.
 After, f=itemgetter(2), the call f(r) returns r[2].
@@ -112,8 +327,8 @@ After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="bravo.protocol.BuildData.y">
-<tt class="descname">y</tt><a class="headerlink" href="#bravo.protocol.BuildData.y" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BuildData.x">
+<tt class="descname">x</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData.x" title="Permalink to this definition">¶</a></dt>
 <dd><p>itemgetter(item, ...) &#8211;&gt; itemgetter object</p>
 <p>Return a callable object that fetches the given item(s) from its operand.
 After, f=itemgetter(2), the call f(r) returns r[2].
@@ -121,8 +336,17 @@ After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="bravo.protocol.BuildData.z">
-<tt class="descname">z</tt><a class="headerlink" href="#bravo.protocol.BuildData.z" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.protocols.beta.BuildData.y">
+<tt class="descname">y</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>itemgetter(item, ...) &#8211;&gt; itemgetter object</p>
+<p>Return a callable object that fetches the given item(s) from its operand.
+After, f=itemgetter(2), the call f(r) returns r[2].
+After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bravo.protocols.beta.BuildData.z">
+<tt class="descname">z</tt><a class="headerlink" href="#bravo.protocols.beta.BuildData.z" title="Permalink to this definition">¶</a></dt>
 <dd><p>itemgetter(item, ...) &#8211;&gt; itemgetter object</p>
 <p>Return a callable object that fetches the given item(s) from its operand.
 After, f=itemgetter(2), the call f(r) returns r[2].
@@ -132,12 +356,15 @@ After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="bravo.protocol.circle">
-<tt class="descclassname">bravo.protocol.</tt><tt class="descname">circle</tt><a class="headerlink" href="#bravo.protocol.circle" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of points in a filled circle of radius 10, sorted according to distance
-from the center.</p>
+<dt id="bravo.protocols.beta.circle">
+<tt class="descclassname">bravo.protocols.beta.</tt><tt class="descname">circle</tt><a class="headerlink" href="#bravo.protocols.beta.circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of points in a filled circle of radius 10.</p>
 </dd></dl>
 
+</div>
+<div class="section" id="module-bravo.protocols.infini">
+<span id="infinicraft-protocols"></span><h2>InfiniCraft protocols<a class="headerlink" href="#module-bravo.protocols.infini" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -146,6 +373,15 @@ from the center.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">protocols</span></tt> &#8211; Twisted protocols</a><ul>
+<li><a class="reference internal" href="#module-bravo.protocols.beta">MineCraft Beta protocols</a></li>
+<li><a class="reference internal" href="#module-bravo.protocols.infini">InfiniCraft protocols</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="plugin.html"
                         title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">plugin</span></tt> &#8211; Plugin loaders</a></p>
@@ -189,7 +425,7 @@ from the center.</p>
         <li class="right" >
           <a href="plugin.html" title="plugin – Plugin loaders"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

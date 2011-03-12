@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>blocks – Block descriptions &mdash; Bravo v1.0 documentation</title>
+    <title>blocks – Block descriptions &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,10 +22,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
     <link rel="next" title="chunk – Chunk data structures" href="chunk.html" />
-    <link rel="prev" title="alpha – Alpha objects" href="alpha.html" /> 
+    <link rel="prev" title="Core" href="core.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,9 +41,9 @@
           <a href="chunk.html" title="chunk – Chunk data structures"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="alpha.html" title="alpha – Alpha objects"
+          <a href="core.html" title="Core"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -58,7 +58,7 @@
 <p>The <tt class="docutils literal"><span class="pre">blocks</span></tt> module contains descriptions of blocks.</p>
 <span class="target" id="module-bravo.blocks"></span><dl class="class">
 <dt id="bravo.blocks.Block">
-<em class="property">class </em><tt class="descclassname">bravo.blocks.</tt><tt class="descname">Block</tt><big>(</big><em>slot</em>, <em>name</em>, <em>drop=None</em>, <em>replace=0</em>, <em>ratio=None</em>, <em>quantity=1</em><big>)</big><a class="headerlink" href="#bravo.blocks.Block" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">bravo.blocks.</tt><tt class="descname">Block</tt><big>(</big><em>slot</em>, <em>name</em>, <em>drop=None</em>, <em>replace=0</em>, <em>ratio=1</em>, <em>quantity=1</em>, <em>dim=16</em><big>)</big><a class="reference internal" href="_modules/bravo/blocks.html#Block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.blocks.Block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>A model for a block.</p>
 <p>There are lots of rule and properties specific to different types of
@@ -66,10 +66,24 @@ blocks. This class encapsulates those properties in a singleton-style
 interface, allowing many blocks to be referenced in one location.</p>
 </dd></dl>
 
+<dl class="class">
+<dt id="bravo.blocks.Item">
+<em class="property">class </em><tt class="descclassname">bravo.blocks.</tt><tt class="descname">Item</tt><big>(</big><em>slot</em>, <em>name</em><big>)</big><a class="reference internal" href="_modules/bravo/blocks.html#Item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.blocks.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An item.</p>
+</dd></dl>
+
 <dl class="data">
 <dt id="bravo.blocks.blocks">
 <tt class="descclassname">bravo.blocks.</tt><tt class="descname">blocks</tt><a class="headerlink" href="#bravo.blocks.blocks" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dictionary of <tt class="docutils literal"><span class="pre">Block</span></tt> objects.</p>
+<p>This dictionary can be indexed by slot number or block name.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="bravo.blocks.items">
+<tt class="descclassname">bravo.blocks.</tt><tt class="descname">items</tt><a class="headerlink" href="#bravo.blocks.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of <tt class="docutils literal"><span class="pre">Item</span></tt> objects.</p>
 <p>This dictionary can be indexed by slot number or block name.</p>
 </dd></dl>
 
@@ -82,8 +96,8 @@ interface, allowing many blocks to be referenced in one location.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="alpha.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">alpha</span></tt> &#8211; Alpha objects</a></p>
+  <p class="topless"><a href="core.html"
+                        title="previous chapter">Core</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="chunk.html"
                         title="next chapter"><tt class="docutils literal"><span class="pre">chunk</span></tt> &#8211; Chunk data structures</a></p>
@@ -122,9 +136,9 @@ interface, allowing many blocks to be referenced in one location.</p>
           <a href="chunk.html" title="chunk – Chunk data structures"
              >next</a> |</li>
         <li class="right" >
-          <a href="alpha.html" title="alpha – Alpha objects"
+          <a href="core.html" title="Core"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>

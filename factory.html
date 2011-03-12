@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>factory – Twisted factory &mdash; Bravo v1.0 documentation</title>
+    <title>factories – Twisted factories &mdash; Bravo v1.2 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bravo v1.0 documentation" href="index.html" />
+    <link rel="top" title="Bravo v1.2 documentation" href="index.html" />
     <link rel="up" title="Core" href="core.html" />
     <link rel="next" title="ibravo – Interfaces" href="ibravo.html" />
     <link rel="prev" title="entity – Entities" href="entity.html" /> 
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="entity.html" title="entity – Entities"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
@@ -53,50 +53,117 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-bravo.factory">
-<span id="factory-twisted-factory"></span><h1><tt class="docutils literal"><span class="pre">factory</span></tt> &#8211; Twisted factory<a class="headerlink" href="#module-bravo.factory" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="factories-twisted-factories">
+<h1><tt class="docutils literal"><span class="pre">factories</span></tt> &#8211; Twisted factories<a class="headerlink" href="#factories-twisted-factories" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">factories</span></tt> package hosts factories for various protocols.</p>
+<div class="section" id="module-bravo.factories.beta">
+<span id="minecraft-beta-factories"></span><h2>MineCraft Beta factories<a class="headerlink" href="#module-bravo.factories.beta" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="bravo.factory.BetaFactory">
-<em class="property">class </em><tt class="descclassname">bravo.factory.</tt><tt class="descname">BetaFactory</tt><a class="headerlink" href="#bravo.factory.BetaFactory" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factories.beta.BravoFactory">
+<em class="property">class </em><tt class="descclassname">bravo.factories.beta.</tt><tt class="descname">BravoFactory</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.internet.protocol.Factory</span></tt></p>
-<p>A <tt class="docutils literal"><span class="pre">Factory</span></tt> that creates <tt class="docutils literal"><span class="pre">BetaProtocol</span></tt> objects when connected to.</p>
+<p>A <tt class="docutils literal"><span class="pre">Factory</span></tt> that creates <tt class="docutils literal"><span class="pre">BravoProtocol</span></tt> objects when connected to.</p>
 <dl class="method">
-<dt id="bravo.factory.BetaFactory.broadcast_for_chunk">
-<tt class="descname">broadcast_for_chunk</tt><big>(</big><em>packet</em>, <em>x</em>, <em>z</em><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.broadcast_for_chunk" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factories.beta.BravoFactory.broadcast">
+<tt class="descname">broadcast</tt><big>(</big><em>packet</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.broadcast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.broadcast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast a packet to all connected players.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.broadcast_for_chunk">
+<tt class="descname">broadcast_for_chunk</tt><big>(</big><em>packet</em>, <em>x</em>, <em>z</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.broadcast_for_chunk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.broadcast_for_chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Broadcast a packet to all players that have a certain chunk loaded.</p>
 <p><cite>x</cite> and <cite>z</cite> are chunk coordinates, not block coordinates.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="bravo.factory.BetaFactory.entities_near">
-<tt class="descname">entities_near</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>radius</em><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.entities_near" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a coordinate and a radius, return all entities within that
-radius of those coordinates.</p>
-<p>All arguments should be in pixels, not blocks.</p>
+<dt id="bravo.factories.beta.BravoFactory.broadcast_for_others">
+<tt class="descname">broadcast_for_others</tt><big>(</big><em>packet</em>, <em>protocol</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.broadcast_for_others"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.broadcast_for_others" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast a packet to all players except the originating player.</p>
+<p>Useful for certain packets like player entity spawns which should
+never be reflexive.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="bravo.factory.BetaFactory.give">
-<tt class="descname">give</tt><big>(</big><em>coords</em>, <em>block</em>, <em>quantity</em><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.give" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factories.beta.BravoFactory.buildProtocol">
+<tt class="descname">buildProtocol</tt><big>(</big><em>addr</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.buildProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.buildProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a protocol.</p>
+<p>This overriden method provides early player entity registration, as a
+solution to the username/entity race that occurs on login.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.chat">
+<tt class="descname">chat</tt><big>(</big><em>message</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.chat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.chat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relay chat messages.</p>
+<p>Chat messages are sent to all connected clients, as well as to anybody
+consuming this factory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.create_entity">
+<tt class="descname">create_entity</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>name</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.create_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.create_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spawn an entirely new entity.</p>
+<p>Handles entity registration as well as instantiation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.destroy_entity">
+<tt class="descname">destroy_entity</tt><big>(</big><em>entity</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.destroy_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.destroy_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy an entity.</p>
+<p>The factory doesn&#8217;t have to know about entities, but it is a good
+place to put this logic.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.flush_chunk">
+<tt class="descname">flush_chunk</tt><big>(</big><em>chunk</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.flush_chunk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.flush_chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flush a damaged chunk to all players that have it loaded.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.give">
+<tt class="descname">give</tt><big>(</big><em>coords</em>, <em>block</em>, <em>quantity</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.give"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.give" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spawn a pickup at the specified coordinates.</p>
 <p>The coordinates need to be in pixels, not blocks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coords</strong> (<em>tuple</em>) &#8211; coordinates, in pixels</li>
+<li><strong>block</strong> (<em>tuple</em>) &#8211; key of block or item to drop</li>
+<li><strong>quantity</strong> (<em>int</em>) &#8211; number of blocks to drop in the stack</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="bravo.factory.BetaFactory.protocol">
-<tt class="descname">protocol</tt><a class="headerlink" href="#bravo.factory.BetaFactory.protocol" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">BetaProtocol</span></tt></p>
+<dt id="bravo.factories.beta.BravoFactory.protocol">
+<tt class="descname">protocol</tt><a class="headerlink" href="#bravo.factories.beta.BravoFactory.protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">BravoProtocol</span></tt></p>
 </dd></dl>
 
 <dl class="method">
-<dt id="bravo.factory.BetaFactory.update_season">
-<tt class="descname">update_season</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.update_season" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factories.beta.BravoFactory.register_entity">
+<tt class="descname">register_entity</tt><big>(</big><em>entity</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.register_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.register_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers an entity with this factory.</p>
+<p>Registration is perhaps too fancy of a name; this method merely makes
+sure that the entity has a unique and usable entity ID.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bravo.factories.beta.BravoFactory.update_season">
+<tt class="descname">update_season</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.update_season"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.update_season" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the world&#8217;s season.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="bravo.factory.BetaFactory.update_time">
-<tt class="descname">update_time</tt><big>(</big><big>)</big><a class="headerlink" href="#bravo.factory.BetaFactory.update_time" title="Permalink to this definition">¶</a></dt>
+<dt id="bravo.factories.beta.BravoFactory.update_time">
+<tt class="descname">update_time</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/bravo/factories/beta.html#BravoFactory.update_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.beta.BravoFactory.update_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the in-game timer.</p>
 <p>The timer goes from 0 to 24000, both of which are high noon. The clock
 increments by 20 every second. Days are 20 minutes long.</p>
@@ -108,6 +175,24 @@ once every 5 days. This is a Babylonian in-game year.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-bravo.factories.infini">
+<span id="infinicraft-factories"></span><h2>InfiniCraft factories<a class="headerlink" href="#module-bravo.factories.infini" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bravo.factories.infini.InfiniClientFactory">
+<em class="property">class </em><tt class="descclassname">bravo.factories.infini.</tt><tt class="descname">InfiniClientFactory</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/infini.html#InfiniClientFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.infini.InfiniClientFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.internet.protocol.Factory</span></tt></p>
+<p>A <tt class="docutils literal"><span class="pre">Factory</span></tt> that serves as an InfiniCraft client.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bravo.factories.infini.InfiniNodeFactory">
+<em class="property">class </em><tt class="descclassname">bravo.factories.infini.</tt><tt class="descname">InfiniNodeFactory</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/bravo/factories/infini.html#InfiniNodeFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bravo.factories.infini.InfiniNodeFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">twisted.internet.protocol.Factory</span></tt></p>
+<p>A <tt class="docutils literal"><span class="pre">Factory</span></tt> that serves as an InfiniCraft node.</p>
+</dd></dl>
+
+</div>
+</div>
 
 
           </div>
@@ -115,6 +200,15 @@ once every 5 days. This is a Babylonian in-game year.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">factories</span></tt> &#8211; Twisted factories</a><ul>
+<li><a class="reference internal" href="#module-bravo.factories.beta">MineCraft Beta factories</a></li>
+<li><a class="reference internal" href="#module-bravo.factories.infini">InfiniCraft factories</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="entity.html"
                         title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">entity</span></tt> &#8211; Entities</a></p>
@@ -158,7 +252,7 @@ once every 5 days. This is a Babylonian in-game year.</p>
         <li class="right" >
           <a href="entity.html" title="entity – Entities"
              >previous</a> |</li>
-        <li><a href="index.html">Bravo v1.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Bravo v1.2 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core</a> &raquo;</li> 
       </ul>
     </div>
