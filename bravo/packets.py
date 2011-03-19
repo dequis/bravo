@@ -513,11 +513,14 @@ def make_packet(packet, *args, **kwargs):
     well.
     """
 
-    if packet not in packets_by_name:
-        print "Couldn't find packet name %s!" % packet
-        return ""
+    if isinstance(packet, int):
+        header = packet
+    else:
+        if packet not in packets_by_name:
+            print "Couldn't find packet name %s!" % packet
+            return ""
 
-    header = packets_by_name[packet]
+        header = packets_by_name[packet]
 
     for arg in args:
         kwargs.update(dict(arg))
